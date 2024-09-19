@@ -1,9 +1,6 @@
 package com.example;
 
 import java.util.Scanner;
-
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
 
 
@@ -24,8 +21,40 @@ while (true) {
   String taskName = scanner.nextLine();
   Task newTask = new Task(taskName);
   Tasks.addTask(newTask);
-  System.out.println("The Task has been added" + taskName);
+  System.out.println("The Task has been added " + taskName);
   break;
+
+        case 2:
+
+            if (Tasks.showAllTasks().isEmpty()) {
+                System.out.println("The Task List ist Empty");
+            } else  {
+                for (int i = 0; i <Tasks.showAllTasks().size(); i++) {
+                    System.out.println(i +1  + ": " + Tasks.showAllTasks().get(i));
+                }
+
+            }
+            break;
+
+        case 3 :
+            String executeTask = scanner.nextLine();
+boolean taskFound = false;
+            for (Task task : Tasks.showAllTasks()) {
+                if (task.getName().equalsIgnoreCase(executeTask)) {
+                    task.arleadyExecuted();
+                    System.out.println("The Task " + executeTask + "Is Executed");
+               taskFound = true;
+               break;
+                }
+
+            }
+            if (!taskFound) {
+                System.out.println("Wrong Chocie , this Task doesnt exists.");
+            }
+
+        case 4 :
+            System.out.println("You have Successfully exited The program");
+            return;
 
 
 

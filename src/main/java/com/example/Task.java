@@ -33,6 +33,6 @@ public class Task {
     }
 
     public String toString() {
-       return name + (executed ? "[Finished]" : "[Not Finished]");
+        return name + (executed ? "[Finished]" : "[Not Finished]");
     }
 }
